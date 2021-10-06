@@ -10,11 +10,12 @@ module "free-tier-k3s" {
   # Network
   whitelist_subnets = [
     "108.45.88.50/32",
+    "71.255.254.176/32",
     "10.0.0.0/8"
   ]
 
   vcn_subnet     = "10.0.0.0/16"
-  private_subnet = "10.0.2.0/23"
+  # private_subnet = "10.0.2.0/23"
   public_subnet  = "10.0.0.0/23"
 
   freetier_server_ad_list = 3
