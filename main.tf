@@ -9,8 +9,7 @@ module "free-tier-k3s" {
 
   # Network
   whitelist_subnets = [
-    "108.45.88.50/32",
-    "71.255.254.176/32",
+    "${chomp(data.http.myip.body)}/32",
     "10.0.0.0/8"
   ]
 
@@ -20,4 +19,9 @@ module "free-tier-k3s" {
 
   freetier_server_ad_list = 3
   freetier_worker_ad_list = [ 3 ]
+}
+
+
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
 }

@@ -17,8 +17,8 @@ echo "Running at $${TMP_BACKUP_NAME}."
 echo "Getting previous backup..."
 
 OUTPUT=$$(oci bv backup list --display-name $${BACKUP_NAME} --lifecycle-state AVAILABLE --query "data [0].{id:\"id\",id:id}" --raw-output --profile $${PROFILE_NAME})
-LAST_BACKUP_ID=$$(echo $$OUTPUT | /usr/local/bin/jq -r '.id')
-BLOCK_VOLUME_ID=$$(echo $$OUTPUT | /usr/local/bin/jq -r '.id')
+LAST_BACKUP_ID=$$(echo $$OUTPUT | jq -r '.id')
+BLOCK_VOLUME_ID=$$(echo $$OUTPUT | jq -r '.id')
 
 echo "Last backup id: $$LAST_BACKUP_ID"
 echo "Block volume id: $$BLOCK_VOLUME_ID"
