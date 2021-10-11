@@ -1,5 +1,6 @@
 variable "region" {}
 
+
 variable "github_actions_subnets" {
   description = "Subnets for Github Actions"
   type        = list(string)
